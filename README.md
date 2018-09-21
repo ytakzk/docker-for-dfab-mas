@@ -6,7 +6,8 @@ Docker image to set up python environment for DFAB MAS program.
 
 # Setup
 - `docker pull ytakzk/dfab-mas`
-- `docker run -d --name [CONTAINER NAME] -v [LOCAL DIRECTORY TO MOUNT]:/jupyter -p [PORT]:8888 dfab-mas`
+- `docker run -d --name [CONTAINER NAME] -v [LOCAL DIRECTORY TO MOUNT]:/jupyter -p [PORT]:8888 ytakzk/dfab-mas`
+- Open `http://localhost:[PORT]`
 
 # Dependencies
 - [Anaconda](https://hub.docker.com/r/continuumio/anaconda/)
