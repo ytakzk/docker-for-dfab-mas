@@ -7,6 +7,7 @@ MAINTAINER Yuta Akizuki <yt@ytakzk.me>
 RUN apt-get update && apt-get install -y \
     vim \
     gcc \
+    libx11-dev \
     && rm -rf /var/lib/apt/lists/*
 
 # install COMPAS and the dependent packages
