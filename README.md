@@ -13,10 +13,11 @@ Docker image to set up python environment for DFAB MAS program.
 
 #### For a container with GUI applications such as matplotlib and graphics (just for Mac OS)
 1. Install [XQuartz](https://www.xquartz.org/)
-1. `docker pull ytakzk/dfab-mas`
-2. Get your ip address by `ifconfig en0 | grep inet | awk '$1=="inet" {print $2}'`
-3. `docker run -d --name [CONTAINER NAME] -v [LOCAL DIRECTORY TO MOUNT]:/jupyter -p [PORT]:8888 -e DISPLAY=[YOUR IP ADDRESS]:0.0 -v /tmp/.X11-unix:/tmp/.X11-unix ytakzk/dfab-mas`
-4. Open `http://localhost:[PORT]`
+2. `xeyes &`
+3. `docker pull ytakzk/dfab-mas`
+4. Get your ip address by `ifconfig en0 | grep inet | awk '$1=="inet" {print $2}'`
+5. `docker run -d --name [CONTAINER NAME] -v [LOCAL DIRECTORY TO MOUNT]:/jupyter -p [PORT]:8888 -e DISPLAY=[YOUR IP ADDRESS]:0.0 -v /tmp/.X11-unix:/tmp/.X11-unix ytakzk/dfab-mas`
+6. Open `http://localhost:[PORT]`
 
 Once you created the container, you will be able to start the container by `docker start [CONTAINER NAME]`.  
 To remove the container, `docker stop [CONTAINER NAME] && docker rm [CONTAINER NAME]`.
