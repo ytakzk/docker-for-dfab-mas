@@ -6,16 +6,26 @@ Docker image to set up python environment for DFAB MAS program.
 
 # Setup
 
-#### For a container with no GUI applications such as matplotlib and graphics
+### For a container with no GUI applications such as matplotlib and graphics
 1. `docker pull ytakzk/dfab-mas`
 2. `docker run -d --name [CONTAINER NAME] -v [LOCAL DIRECTORY TO MOUNT]:/jupyter -p [PORT]:8888 ytakzk/dfab-mas`
 3. Open `http://localhost:[PORT]`
 
-#### For a container with GUI applications such as matplotlib and graphics (just for Mac OS)
+### For a container with GUI applications such as matplotlib and graphics
+
+#### Mac OS & Linux
 1. Install [XQuartz](https://www.xquartz.org/)
 2. `xeyes &`
 3. `docker pull ytakzk/dfab-mas`
 4. Get your ip address by `ifconfig en0 | grep inet | awk '$1=="inet" {print $2}'`
+5. `docker run -d --name [CONTAINER NAME] -v [LOCAL DIRECTORY TO MOUNT]:/jupyter -p [PORT]:8888 -e DISPLAY=[YOUR IP ADDRESS]:0.0 -v /tmp/.X11-unix:/tmp/.X11-unix ytakzk/dfab-mas`
+6. Open `http://localhost:[PORT]`
+
+#### Windows
+1. Install [VcXsrv](https://sourceforge.net/projects/vcxsrv/).
+2. Run *Xlaunch* following by the instruction on [this website](https://dev.to/darksmile92/run-gui-app-in-linux-docker-container-on-windows-host-4kde)
+3. `docker pull ytakzk/dfab-mas`
+4. Get your ip address by `ipconfig`
 5. `docker run -d --name [CONTAINER NAME] -v [LOCAL DIRECTORY TO MOUNT]:/jupyter -p [PORT]:8888 -e DISPLAY=[YOUR IP ADDRESS]:0.0 -v /tmp/.X11-unix:/tmp/.X11-unix ytakzk/dfab-mas`
 6. Open `http://localhost:[PORT]`
 
